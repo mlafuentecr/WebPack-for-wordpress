@@ -1,9 +1,10 @@
 {
-  "name": "html5blank-stable",
+  "name": "themeMario",
   "version": "1.0.0",
   "description": "Webpack 4 WordPress",
   "main": "index.js",
   "scripts": {
+    "watch": "webpack --watch",
     "dev": "webpack --mode development",
     "build": "webpack --mode production"
   },
@@ -71,5 +72,8 @@
   "bugs": {
     "url": "https://github.com/mlafuentecr/WebPack-for-wordpress/issues"
   },
-  "homepage": "https://github.com/mlafuentecr/WebPack-for-wordpress#readme"
+  "homepage": "https://github.com/mlafuentecr/WebPack-for-wordpress#readme",
+  "dependencies": {
+    "@webpack-cli/init": "^0.1.5"
+  }
 }

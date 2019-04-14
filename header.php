@@ -29,12 +29,16 @@
 					</div>
 					<!-- /logo -->
 
+					<!-- banner -->
+					<div id="bannertop" class=" col-xs-12  col-md-12 col-lg-9 center-lg"><img src="https://picsum.photos/468/60?image=0" class='bannertop' alt=""></div>
+					<!-- /banner -->
+
+
 					<!-- nav -->
-					<nav class="menuWrapper col-xs-12  col-md-12 col-lg-9 center-lg" role="navigation">
+					<nav class="menuWrapper col-xs-12  col-md-12 col-lg-12 center-lg" role="navigation">
 					<input type="checkbox" id="menu-toggle" />
 					<label for="menu-toggle" class="label-toggle"></label>
-					
-						<?php blank_nav(); ?>
+					<?php blank_nav(); ?>
 					</nav>
 					<!-- /nav -->
 

@@ -1,0 +1,251 @@
+// si no funciona el Navbar revisar esta clase Navbar cambia de nombre menu
+$colors: (
+    primary: #005DFF,
+    primary-light: lighten(#005DFF, 40%),
+    primary-dark: darken(#005DFF, 40%),
+    navColor: #46ACC2,
+    navlink: white,
+    navlinkHover:darken(#46ACC2, 10%),
+    accent: #FFF6BB
+);
+$navColor: #46ACC2;
+
+@function color($color-name) { 
+  @return map-get($colors, $color-name)
+}
+
+
+$xs:            0px;
+$sm:            397px;
+$mobileminmax:  767px;
+$portrait:      1023px;
+$tabletmin:     768px;
+$tabletmax:     1024px;
+$desktop:       1240px;
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+      @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: $tabletmin) and (max-width: $tabletmax)  {
+    @content;
+  }
+}
+
+@mixin sm {
+    @media (min-width: $sm) and (max-width: $mobileminmax)  {
+      @content;
+    }
+}
+
+@mixin xs {
+  @media (min-width: $xs) and (max-width: $sm)  {
+    @content;
+  }
+
+}
+
+
+.flexNoWrap{
+  display: flex;
+  flex-wrap: nowrap;
+
+}
+
+
+.flexWrap{
+  display: flex;
+  flex-wrap: wrap;
+  p{
+    width: 100%;
+    height: 0px;
+  }
+}
+
+
+body{
+
+  font-family: 'Oswald', sans-serif;
+  line-height: 2em;
+  text-transform: uppercase;
+
+  }
+
+
+
+
+
+.wrapper {
+  position: relative;
+}
+
+//MENU
+#menu-toggle {display: none;}
+nav{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.Navbar {
+  display: flex;
+  font-family: sans-serif;
+  color: color(navlink);
+  background: color(navColor);
+  width: 100%;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      overflow: hidden;
+      
+    }
+
+    li { 
+      display: inline-block; 
+      padding: 8px;
+   
+      &:hover {background: color(navlinkHover);}
+    }
+    a {
+      display: block;
+      padding: 6px 12px;
+      text-decoration: none;
+      color: color(navlink);
+      text-decoration: none;
+    }
+
+    @include desktop {
+      
+    }
+
+    @include tablet {
+
+    }
+
+    @include sm {
+      ul{
+        transition: all 1s ease;
+        flex-direction: column;
+
+        height: 0vh;
+        transition: all 1s ease;
+        visibility: hidden;
+      }
+      li{
+        font-size: 18px;
+        text-align: left;
+
+        transition: all 1.5s ease;
+        opacity: 0;
+      }
+
+    }
+
+    @include xs{
+      margin-top: 70px;
+
+      ul{
+        transition: all 1s ease;
+        flex-direction: column;
+
+        height: 0px;
+        transition: all 1s ease;
+        visibility: hidden;
+      }
+      li{
+        font-size: initial;
+        text-align: left;
+
+        transition: all 1.5s ease;
+        opacity: 0;
+      }
+    }
+
+
+}
+
+
+
+.label-toggle {
+    background: linear-gradient(to bottom, $navColor 0%, $navColor 20%, transparent 20%, transparent 40%, $navColor 40%, $navColor 60%, transparent 60%, transparent 80%, $navColor 80%, $navColor 100%);
+    cursor: pointer;
+    display: block;
+    float: right;
+    height: 35px;
+    margin-top: 1em;
+    width: 35px;
+    display: none;
+    position: absolute;
+    right: -10px;
+    top: -80px;
+
+    @include tablet {
+      display: none;
+    }
+
+    @include sm {
+      display:block;
+    }
+    @include xs{
+      top: 0px;
+      right: 0px;
+      display:block;
+    }
+
+}
+
+
+#menu-toggle:checked ~ .Navbar ul {
+  transition: all 1s ease;
+  opacity: 1;
+  height: 50vh;
+  visibility: visible;
+  padding: 16px;
+}
+
+
+#menu-toggle:checked ~ .Navbar li {
+  display:block;
+  flex-direction: column;
+  opacity: 1;
+}
+
+.logo{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+#bannertop{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  @include sm {
+    display: none;
+  }
+  @include xs {
+    display: none;
+  }
+}
+
+
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}

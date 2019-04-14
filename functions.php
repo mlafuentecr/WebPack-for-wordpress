@@ -13,17 +13,16 @@
  */
 
 
-
-require get_template_directory().'/src/inc/cleanup.php';
-require get_template_directory().'/src/inc/admin_Look.php';
-require get_template_directory().'/src/inc/enqueue.php';
-require get_template_directory().'/src/inc/menuNav.php';
-// require get_template_directory().'/inc/theme-support.php';
-// require get_template_directory().'/inc/custom-post-type.php';
-// require get_template_directory().'/inc/walker.php';
-// require get_template_directory().'/inc/ajax.php';
-// require get_template_directory().'/inc/shortcodes.php';
-// require get_template_directory().'/inc/widgets.php';
+require get_template_directory().'/inc/cleanup.php';
+require get_template_directory().'/inc/admin_look.php';
+require get_template_directory().'/inc/enqueue.php';
+require get_template_directory().'/inc/menuNav.php';
+// require get_template_directory().'theme-support.php';
+// require get_template_directory().'custom-post-type.php';
+// require get_template_directory().'walker.php';
+// require get_template_directory().'ajax.php';
+// require get_template_directory().'shortcodes.php';
+// require get_template_directory().'widgets.php';
 
 
 

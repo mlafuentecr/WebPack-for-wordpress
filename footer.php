@@ -1,13 +1,41 @@
 			<!-- footer -->
-			<footer class="footer" role="contentinfo">
+			<footer class="footer col-lg-12 left-lg" role="contentinfo">
 
-				<!-- copyright -->
-				<p class="copyright">
-					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
-					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//html5blank.com" title="HTML5 Blank">HTML5 Blank</a>.
-				</p>
-				<!-- /copyright -->
+      <!--Footer Content Area-->
 
+			<?php
+          $baseball   = get_field('baseball',   6 );
+          $basketball = get_field('basketball', 6 );
+          $football   = get_field('football',   6 );
+          $hockey     = get_field('hockey',     6 );
+          $soccer     = get_field('soccer',     6 );
+          $more_sports = get_field('more_sports',6 );
+          ?>
+
+        <div class="items left-lg flexWrap">
+        <?php echo $baseball; ?>
+        </div>
+
+        <div class=" items left-lg flexWrap">
+        <?php echo $basketball; ?>
+        </div>
+
+        <div class=" items left-lg flexWrap">
+        <?php echo $football; ?>
+        </div>
+
+
+        <div class=" items left-lg flexWrap">
+        <?php echo $hockey; ?>
+        </div>
+
+        <div class=" items left-lg flexWrap">
+        <?php echo $soccer; ?>
+        </div>
+
+        <div class=" items left-lg flexWrap">
+        <?php echo $more_sports; ?>
+        </div>
 			</footer>
 			<!-- /footer -->
 
@@ -15,7 +43,6 @@
 		<!-- /wrapper -->
 
 		<?php wp_footer(); ?>
-
 		<!-- analytics -->
 		<script>
 		(function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
@@ -24,7 +51,7 @@
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 		ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
 		ga('send', 'pageview');
-		</script>
-
+    </script>
+    
 	</body>
 </html>

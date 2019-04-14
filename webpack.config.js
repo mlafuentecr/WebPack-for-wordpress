@@ -1,20 +1,23 @@
-const path                    = require('path');
-const HtmlWebPackPlugin       = require('html-webpack-plugin');
-const MiniCssExtractPlugin    = require("mini-css-extract-plugin");
+const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const UglifyJSPlugin          = require('uglifyjs-webpack-plugin');
-
 
 
 
 module.exports = {
+  watchOptions: {
+    poll: true
+},
 
-
-  entry:  ['./src/js/main.js', './src/css/main.scss'],
+  entry:  ['./src/js/main.js', './src/js/login.js', './src/css/main.scss'],
   output: {
     path: __dirname + '/dist',
-    filename: 'bundle.js'
+    filename: './js/bundle.min.js'
   },
+  
   module:{
       rules:[
         {
@@ -32,49 +35,11 @@ module.exports = {
         test: /\.scss$/,
         exclude: [/node_modules/],
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-        // use: [
-        //   {
-        //     loader: "style-loader" // creates style nodes from JS strings
-        //   },
-        //   {
-        //     loader: "css-loader" // translates CSS into CommonJS
-        //   },
-        //   {
-        //     loader: "sass-loader" // compiles Sass to CSS
-        //   }
-        // ]
+ 
     },
-        {
-          test: /\.(gif|png|jpe?g|svg)$/i,
-          use: [
-            'file-loader',
-            {
-              loader: 'image-webpack-loader',
-              options: {
-                mozjpeg: {
-                  progressive: true,
-                  quality: 65
-                },
-                // optipng.enabled: false will disable optipng
-                optipng: {
-                  enabled: false,
-                },
-                pngquant: {
-                  quality: '65-90',
-                  speed: 4
-                },
-                gifsicle: {
-                  interlaced: false,
-                },
-                // the webp option will enable WEBP
-                webp: {
-                  quality: 75
-                }
-              }
-            },
-          ]
-        },
 
+        
+///////End rules////
       ]
   },
   
@@ -85,8 +50,13 @@ module.exports = {
     // }),
     new MiniCssExtractPlugin({
       template: "[name].css", //from
-      filename: "main.min.css" //lo mete en Dist
+      filename: "./css/main.min.css" //lo mete en Dist
     }),
+    new CopyPlugin([
+      { from: './src/img', to: './img' },
+      { from: './src/css/admin.css', to: './css' },
+      { from: './src/css/login.css', to: './css' },
+    ]),
   
   ],
   optimization: {
